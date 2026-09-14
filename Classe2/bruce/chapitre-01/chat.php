@@ -71,15 +71,20 @@ class Tamagotchi
 
     public function manger(): void
     {
-        $this->faim = $this->faim - 20;
+        $this->faim = $this->borner($this->faim - 20);
     }
 
     public function jouer(): void
     {
-        $this->faim = $this->faim + 15;
+        $this->faim = $this->borner($this->faim + 15);
     }
 
-    public function etat(): string
+    private function borner(int $valeur): int
+    {
+        return max(0, min(100, $valeur));
+    }
+
+    public function __toString(): string
     {
         return '🐣 ' . $this->nom . ' a une faim de ' . $this->faim . '/100';
     }
@@ -89,13 +94,19 @@ class Tamagotchi
 
 $pixel = new Tamagotchi('Pixel');
 
-echo $pixel->etat() . '<br>';
+echo $pixel . '<br>';
 
 $pixel->manger();
-echo $pixel->etat() . '<br>';
+echo $pixel . '<br>';
 
 $pixel->jouer();
-echo $pixel->etat() . '<br>';
+echo $pixel . '<br>';
+
+
+for ($i = 0; $i < 10; $i++) {
+    $pixel->jouer();
+}
+echo $pixel . '<br>'; 
 
 
 

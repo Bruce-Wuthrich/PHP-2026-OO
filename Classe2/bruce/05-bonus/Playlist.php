@@ -31,17 +31,14 @@ class Playlist
 
     public function formaterDuree(int $secondes): string
     {
-    
+        
         $minutes = intdiv($secondes, 60);
         $resteSecondes = $secondes % 60;
-        
-        return sprintf('%d:%02d', $minutes, $resteSecondes);
-
 
         
+        $minutesFormatees = str_pad((string) $minutes, 2, '0', STR_PAD_LEFT);
+        $secondesFormatees = str_pad((string) $resteSecondes, 2, '0', STR_PAD_LEFT);
 
-
-
-
+        return $minutesFormatees . ':' . $secondesFormatees;
     }
 }

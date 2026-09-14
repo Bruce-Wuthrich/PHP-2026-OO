@@ -8,5 +8,11 @@ class Chat
 
 $chat = new Chat();
 
-echo $chat->nom . PHP_EOL;
-echo $chat->age . PHP_EOL;
+ $chat->nom = 'Félix'. PHP_EOL;
+ $chat->age ='3' . PHP_EOL;
+
+ echo "$chat->nom <br> $chat->age";
+ 
+ 
+
+

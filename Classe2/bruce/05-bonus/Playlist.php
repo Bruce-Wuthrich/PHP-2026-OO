@@ -14,6 +14,7 @@ class Playlist
         foreach ($this->chansons as $chanson) {
             echo $chanson->getTitre() . ' - ' . $chanson->getArtiste();
             echo ' (' . $this->formaterDuree($chanson->getDuree()) . ')';
+            echo PHP_EOL;
         }
     }
 
@@ -33,9 +34,11 @@ class Playlist
     
         $minutes = intdiv($secondes, 60);
         $resteSecondes = $secondes % 60;
+        
+        return sprintf('%d:%02d', $minutes, $resteSecondes);
 
 
-
+        
 
 
 
